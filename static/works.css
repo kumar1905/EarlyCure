@@ -1,0 +1,323 @@
+.flowchart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.flowchart-img {
+    width: 900px; /* Adjust as needed */
+    max-width: 900px; /* Prevents it from getting too large */
+    border-radius: 10px;
+    margin-bottom:20px;
+}
+.btn-cta {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0; /* Centers the button below the image */
+    padding: 15px 30px;
+    background: #0d0440;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top:20px;
+    margin-bottom: 40px;
+}
+
+.btn-cta:hover {
+    background: #3b3b3b;
+}
+
+nav {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+/* Logo Styling */
+nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;  /* Added space between logo and text */
+}
+
+.logo img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.2);
+}
+
+/* Title Styling */
+.nav-title {
+    color: #024950; /* Text color */
+    font-size: 22px; /* Increased font size */
+    font-weight: bold;
+    white-space: nowrap; /* Prevents text from breaking */
+}
+
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    gap: 40px;
+    margin-right:20px;
+}
+
+.nav-links a {
+    color: #5a4a42;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px; /* Space for underline effect */
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #024950;
+}
+
+/* Floating Underline Effect */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #024950; /* Underline color */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Button Styling */
+.cta-button a {
+    background-color: #024950;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+   
+}
+
+.cta-button a:hover {
+    background: #01373a;
+    transform: scale(1.1);
+}
+footer {
+    background: #ffffff; /* Changed background to white */
+    color: #024950; /* Changed text color */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 20px;
+    text-align: left;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #024950; /* Changed heading color */
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: #024950; /* Changed link color */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ffcc00;
+}
+
+.footer-section p {
+    margin: 5px 0;
+    color: #024950; /* Changed paragraph text color */
+}
+
+.footer-social a {
+    color: #024950; /* Changed icon color */
+    font-size: 20px;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: #ffcc00;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #024950; /* Changed border color */
+    color: #024950; /* Changed text color */
+}
+
+
+.contact-section {
+    font-family: Arial, sans-serif;
+    background: white;
+    color: black;
+    padding: 60px 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1ece5;
+}
+
+/* Main Container */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 900px;
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.2); /* Adds a border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a shadow */
+    padding: 20px; /* Adds space inside the box */
+    background: #f9f9f9; /* Light background color */
+}
+
+
+/* Left Form Section */
+.form-section {
+    flex: 1;
+    padding: 40px;
+    background: linear-gradient(135deg, #6f3c91, #4ca7b2);
+    margin-right: 60px;
+    
+}
+
+.form-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Form Styling */
+.contact-form input,
+.contact-form textarea {
+    width:320px;
+    padding: 12px 15px;
+    margin: 10px 0;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    font-size: 16px;
+    color: rgb(196, 187, 187);
+    outline: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+   
+    
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #ffffff;
+}
+
+/* Button */
+.contact-form button {
+    background-color: #ff4081;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    display: block;
+    margin-top: 20px;
+}
+
+.contact-form button:hover {
+    background-color: #e91e63;
+}
+
+/* Right Info Section */
+.info-section {
+    flex: 1;
+    padding-left: 50px;
+    border-left: 2px solid rgba(0, 0, 0, 0.1);
+    margin-right:30px;
+}
+
+.info-section h2 {
+    color: #222;
+    font-size: 22px;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.info-section h2::after {
+    content: "";
+    display: block;
+    width: 50px; /* Adjust width as needed */
+    height: 3px; /* Adjust thickness as needed */
+    background-color: #ff4081; /* Match button color */
+    margin-top: 5px;
+}
+
+.info-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.info-section strong {
+    color: #333;
+}
+
+.info-section i {
+    color: #ff4081; /* Match button color */
+    margin-right: 8px;
+    font-size: 16px;
+}

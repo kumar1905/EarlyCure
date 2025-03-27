@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Palm Line Disease Prediction</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="PalmAI Logo" />
+            <h3 class="nav-title">Early Cure - AI Based Disease Detection Using Palm</h3>
+        </div>
+    
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li> <!-- Changed from Diseases to About -->
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    
+        <div class="cta-button">
+            <a href="/predict" class="blue-button">Try Early Cure</a>
+        </div>
+    </nav>
+    
+    
+    <!-- Hero Section -->
+    <div id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover Your Health Insights with </br>Early Cure</h1>
+            <br>Early detection for a healthier tomorrow. Analyze your palm lines with Early Cure and take control of your well-being.</p>
+
+            <div class="hero-buttons">
+                <a href="/predict" class="transparent-button">🔬 Start Diagnosis</a>
+                <a href="/static/work.html" class="transparent-button">ℹ️ How It Works?</a>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- About Section -->
+<div id="about" class="about-section">
+    <div class="about-content">
+        <!-- Text Section -->
+        <div class="about-text">
+            <h2>Welcome to <b>Early Cure</b> – Your Health Companion</h2>
+            
+            <p>
+                <b>Early Cure</b> is an <strong>AI-powered health assessment platform</strong> that <strong>analyzes unique palm patterns</strong> 
+                to detect early signs of <strong>Hypertension, Cardiovascular Diseases, Diabetes, Neurological Disorders, and Genetic Conditions</strong>.
+            </p>
+
+            <p class="highlight">
+                🧠 <b>AI Meets Preventive Healthcare</b>  
+                <strong>Unlock health insights before symptoms appear and take proactive measures to stay healthy.</strong>
+            </p>
+
+            <!-- Key Benefits Section -->
+            <div class="about-benefits">
+                <div class="benefit">
+                    <span>🩺</span>
+                    <h3>Early Detection</h3>
+                    <p>Identify potential health risks before they become serious.</p>
+                </div>
+
+                <div class="benefit">
+                    <span>📊</span>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Get precise and personalized health assessments.</p>
+                </div>
+
+                <div class="benefit">
+                    <span>📉</span>
+                    <h3>Preventive Care</h3>
+                    <p>Take control of your well-being with proactive healthcare.</p>
+                </div>
+
+                <div class="benefit">
+                    <span>🧬</span>
+                    <h3>Personalized Reports</h3>
+                    <p>Understand your unique health patterns with AI-driven analysis.</p>
+                </div>
+            </div>
+
+            <!-- Mission Statement -->
+            <p class="mission">
+                At <b>Early Cure</b>, we believe <strong>prevention is better than cure</strong>.  
+                Our mission is to make <strong>early, accurate, and accessible health predictions</strong> available to everyone—because your well-being matters.
+            </p>
+
+            <!-- Call-to-Action -->
+            <a href="/static/work.html" class="health-check-button">Start Your Health Checkup</a>
+        </div>
+    </div>
+</div>
+<div class="disease-slider">
+    <!-- Hypertension -->
+    <div class="slide">
+        <h2>Hypertension & Cardiovascular Disease</h2>
+        <img src="/static/images/heart.png" alt="Hypertension Image">
+        <p>Hypertension is a condition where blood pressure is consistently too high. It is a major risk factor for cardiovascular diseases.</p>
+        <a href="https://www.who.int/health-topics/hypertension" class="learn-more-button" target="_blank">Learn More</a>
+    </div>
+
+    <!-- Down Syndrome -->
+    <div class="slide">
+        <h2>Down Syndrome - Heart Defects & Immune Issues</h2>
+        <img src="/static/images/immune.png" alt="Down Syndrome Image">
+        <p>Down Syndrome is a genetic condition that affects cognitive ability and growth, often accompanied by heart defects and immune issues.</p>
+        <a href="https://www.ndss.org/resources/health-issues/" class="learn-more-button" target="_blank">Learn More</a>
+    </div>
+
+    <!-- Neurological Disorders -->
+    <div class="slide">
+        <h2>Neurological Disorders - Autism & Schizophrenia</h2>
+        <img src="/static/images/brain.png" alt="Neurological Disorders Image">
+        <p>Neurological disorders such as Autism and Schizophrenia affect brain function, behavior, and cognitive abilities.</p>
+        <a href="https://www.ninds.nih.gov/health-information" class="learn-more-button" target="_blank">Learn More</a>
+    </div>
+
+    <!-- Scleroderma -->
+    <div class="slide">
+        <h2>Scleroderma - Tissue Disorder</h2>
+        <img src="/static/images/tissue.png" alt="Scleroderma Image">
+        <p>Scleroderma is a chronic autoimmune disease that results in hardening of the skin and connective tissues.</p>
+        <a href="https://www.scleroderma.org/" class="learn-more-button" target="_blank">Learn More</a>
+    </div>
+
+    <!-- Healthy Lifestyle -->
+    <div class="slide">
+        <h2>Healthy Lifestyle Insights</h2>
+        <img src="/static/images/healthy.png" alt="Healthy Lifestyle Image">
+        <p>Maintaining a healthy lifestyle includes regular exercise, balanced nutrition, and mental well-being for overall vitality.</p>
+        <a href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet" class="learn-more-button" target="_blank">Learn More</a>
+    </div>
+</div>
+
+    
+
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+        <!-- Left: Form Section -->
+        <div class="form-section">
+            <h2>Send us a message</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="Subject" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Right: Contact Info Section -->
+        <div class="info-section">
+            <h2>Contact us</h2>
+            <h4>We're open for any suggestion or just to have a chat</h4>
+            <p><i class="fa-solid fa-phone"></i> +91 1234567891</p>
+            <p><i class="fa-solid fa-envelope"></i> EarlyCure@gmail.com</p>
+            <p><i class="fa-solid fa-envelope"></i> earlycure_support@gmail.com</p>
+            
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Try Early Cure</h4>
+                <ul>
+                    <li><a href="/predict">Use Early Cure</a></li>
+                    <li><a href="/static/work.html">How it works</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: support@earlycure.com</p>
+                <p>Phone: +123 456 7890</p>
+            </div>
+    
+            <div class="footer-section footer-social">
+                <h4>Follow Us</h4>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2024 Early Cure. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        function showInfo(id) {
+    var info = document.getElementById(id);
+    if (info.style.display === "none" || info.style.display === "") {
+        info.style.display = "block";
+    } else {
+        info.style.display = "none";
+    }
+}
+
+        // Smooth Scrolling for Navbar Links
+        $('nav a').on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 800);
+            }
+        });
+
+        // Feature Slider Animation
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide() {
+            slides.forEach(slide => slide.style.display = 'none');
+            slides[currentSlide].style.display = 'block';
+            currentSlide = (currentSlide + 1) % slides.length;
+        }
+
+        setInterval(showSlide, 3000);  // Auto-slide every 3 seconds
+        showSlide();  // Initialize first slide
+
+        //contact form
+        document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector(".contact-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Retrieving form data
+        const name = this.querySelector("input[placeholder='Name']").value;
+        const email = this.querySelector("input[placeholder='Email']").value;
+        const subject = this.querySelector("input[placeholder='Subject']").value;
+        const message = this.querySelector("textarea[placeholder='Message']").value;
+
+        // Display response message
+        let responseDiv = document.createElement("p");
+        responseDiv.textContent = "Thank you for your message, " + name + "!";
+        responseDiv.style.color = "white";
+        this.appendChild(responseDiv);
+
+        // Clear the form
+        this.reset();
+    });
+});
+
+    </script>
+    
+    
+</body>
+</html>

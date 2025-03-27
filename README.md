@@ -1,0 +1,1 @@
+# Disease-Diagnosis-Using-Palm-Lines
