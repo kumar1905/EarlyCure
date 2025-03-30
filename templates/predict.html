@@ -6,9 +6,6 @@
     <title>Predict Disease - Palm Line Analysis</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/predict.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -19,17 +16,15 @@
         </div>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
-           
         </ul>
         <div class="cta-button">
             <a href="/predict" class="blue-button">Try Early Cure</a>
         </div>
     </nav>
     
-    <div class="wrapper">
+    <div class="main-container">
         <div class="content-box">
             <div class="container">
-                <!-- Upload Section -->
                 <div class="upload-section">
                     <h1>Upload Your Palm Image</h1>
                     <form id="uploadForm" action="/predict" method="post" enctype="multipart/form-data">
@@ -48,25 +43,32 @@
                     </div>
                 </div>
     
-                <!-- Prediction Section -->
-                <div class="prediction-section">
+                <div class="results-display">
                     {% if prediction %}
-                    <div class="image-grid">
-                        <div class="image-container">
-                            <h3>Uploaded Image:</h3>
-                            <img src="{{ image_path }}" alt="Uploaded Palm Image">
-                        </div>
+                    <div class="palm-markings-container">
                         {% if highlighted_base64 %}
                         <div class="image-container">
-                            <h3>Palm markings:</h3>
+                            <h3>Palm Markings:</h3>
                             <img src="data:image/png;base64,{{ highlighted_base64 }}" alt="Palm Highlighted Image">
                         </div>
                         {% endif %}
                     </div>
-                    <div class="result">
-                        <h3>Prediction Result:</h3>
-                        <p>{{ prediction }}</p>
-                        <h4>Confidence: {{ confidence }}%</h4>
+                    
+                    <div class="prediction-section">
+                        <div class="result">
+                            <h3>Prediction Result:</h3>
+                            <p id="predictedDisease">{{ prediction }}</p>
+                            <h4>Confidence: {{ confidence }}%</h4>
+                        </div>
+                        {% if prediction and prediction != "Healthy" %}
+                        <div class="carousel-container">
+                            <h2>Precautions and Measures</h2>
+                            <div class="slide">
+                                <h4 id="precautionDiseaseName"></h4>
+                                <p id="diseasePrecautions"></p>
+                            </div>
+                        </div>
+                        {% endif %}
                     </div>
                     {% endif %}
                 </div>
@@ -74,72 +76,27 @@
         </div>
     </div>
     
-        <div class="carousel-container">
-            <h2> Precautions and Measures </h2>
-            <div class="carousel">
-                <div class="slide">
-                    <h4>🧠 Neurological Disorders - Autism, Schizophrenia</h4>
-                    <p>Stick to structured routines, engage in therapy, reduce sensory overload, and manage stress effectively.</p>
-                </div>
-                <div class="slide">
-                    <h4>❤️ Cardiovascular Disease</h4>
-                    <p>Eat heart-healthy foods, quit smoking, exercise, maintain cholesterol levels, and get regular check-ups.</p>
-                </div>
-                <div class="slide">
-                    <h4>🧬 Down Syndrome - Heart & Immune Issues</h4>
-                    <p>Follow a balanced diet, stay physically active, take immune-boosting supplements, and attend frequent medical check-ups.</p>
-                </div>
-                <div class="slide">
-                    <h4>💓 Hypertension</h4>
-                    <p>Maintain a low-sodium diet, exercise regularly, avoid stress, and monitor blood pressure.</p>
-                </div>
-                <div class="slide">
-                    <h4>🦠 Scleroderma - Tissue Disorder</h4>
-                    <p>Moisturize skin daily, avoid cold exposure, consume anti-inflammatory foods, and manage stress.</p>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-
     <script>
         $(document).ready(function() {
-            $('#uploadForm').on('submit', function() {
-                $('#loading').fadeIn();
-            });
+            const precautions = {
+                "Hypertension, Cardiovascular Disease": "Eat heart-healthy foods, quit smoking, exercise, maintain cholesterol levels, and get regular check-ups.",
+                "Down Syndrome - Heart Defects and Immune Issues": "Follow a balanced diet, stay physically active, take immune-boosting supplements, and attend frequent medical check-ups.",
+                "Neurological Disorders - Autism, Schizophrenia": "Stick to structured routines, engage in therapy, reduce sensory overload, and manage stress effectively.",
+                "Scleroderma - Tissue Disorder": "Moisturize skin daily, avoid cold exposure, consume anti-inflammatory foods, and manage stress."
+            };
     
-            // Initialize the slick carousel
-            $('.carousel').slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                arrows: true,
-                adaptiveHeight: true
-            });
+            const predictedDisease = $("#predictedDisease").text().trim();
+            const diseasePrecautions = $("#diseasePrecautions");
+            const precautionDiseaseName = $("#precautionDiseaseName");
+
+            if (precautions[predictedDisease]) {
+                diseasePrecautions.text(precautions[predictedDisease]);
+                precautionDiseaseName.text(predictedDisease);
+            } else if (predictedDisease != "Healthy") {
+                diseasePrecautions.text("No specific precautions found. Please follow general health guidelines.");
+                precautionDiseaseName.text("General Health");
+            }
         });
-
-        // Camera functionality
-        function openCamera() {
-    let input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'image/*';
-    input.capture = 'environment';
-    input.click();
-    input.onchange = function(event) {
-        let file = event.target.files[0];
-        if (file) {
-            let form = document.getElementById('uploadForm');
-            let formData = new FormData(form);
-            formData.append('image', file);
-            form.submit();
-        }
-    };
-}
-
     </script>
 </body>
 </html>
