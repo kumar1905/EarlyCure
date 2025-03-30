@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Predict Disease - Palm Line Analysis</title>
+    <title>Analyze Palm - Disease Detection</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/predict.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -18,7 +18,7 @@
             <li><a href="/">Home</a></li>
         </ul>
         <div class="cta-button">
-            <a href="/predict" class="blue-button">Try Early Cure</a>
+            <a href="/predict">Try Early Cure</a>
         </div>
     </nav>
     
@@ -35,7 +35,7 @@
                             <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display: none;">
                             <input type="file" name="image" accept="image/*" required>
                         </div>
-                        <button type="submit">Predict</button>
+                        <button type="submit">Analyze Palm</button>
                     </form>
                     <div class="loading-container" id="loading">
                         <div class="loading-animation"></div>
@@ -78,6 +78,31 @@
     
     <script>
         $(document).ready(function() {
+            // Show loading animation when form is submitted
+            $('#uploadForm').submit(function() {
+                $('#loading').show();
+            });
+            
+            // Camera button functionality
+            $('.camera-button').click(function() {
+                $('#cameraInput').click();
+            });
+            
+            $('#cameraInput').change(function() {
+                if (this.files && this.files[0]) {
+                    $('input[name="image"]').val('');
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Create a new file list with the captured image
+                        var fileList = new DataTransfer();
+                        fileList.items.add(new File([e.target.result], "captured.jpg", {type: "image/jpeg"}));
+                        $('input[name="image"]')[0].files = fileList.files;
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+            // Disease precautions data
             const precautions = {
                 "Hypertension, Cardiovascular Disease": "Eat heart-healthy foods, quit smoking, exercise, maintain cholesterol levels, and get regular check-ups.",
                 "Down Syndrome - Heart Defects and Immune Issues": "Follow a balanced diet, stay physically active, take immune-boosting supplements, and attend frequent medical check-ups.",

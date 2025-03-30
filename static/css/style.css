@@ -8,6 +8,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Navigation Bar */
 nav {
     background: #ffffff;
     display: flex;
@@ -25,10 +26,10 @@ nav {
 }
 
 /* Logo Styling */
-nav .logo {
+.logo {
     display: flex;
     align-items: center;
-    gap: 15px;  /* Added space between logo and text */
+    gap: 15px;
 }
 
 .logo img {
@@ -40,17 +41,15 @@ nav .logo {
 }
 
 .logo img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
-/* Title Styling */
 .nav-title {
-    color: #024950; /* Text color */
-    font-size: 22px; /* Increased font size */
+    color: #024950;
+    font-size: 22px;
     font-weight: bold;
-    white-space: nowrap; /* Prevents text from breaking */
+    white-space: nowrap;
 }
-
 
 /* Navigation Links */
 .nav-links {
@@ -65,7 +64,7 @@ nav .logo {
     text-decoration: none;
     font-weight: bold;
     position: relative;
-    padding-bottom: 5px; /* Space for underline effect */
+    padding-bottom: 5px;
     transition: color 0.3s ease;
 }
 
@@ -73,7 +72,6 @@ nav .logo {
     color: #024950;
 }
 
-/* Floating Underline Effect */
 .nav-links a::after {
     content: "";
     position: absolute;
@@ -81,7 +79,7 @@ nav .logo {
     bottom: 0;
     width: 100%;
     height: 3px;
-    background-color: #024950; /* Underline color */
+    background-color: #024950;
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -91,21 +89,75 @@ nav .logo {
 }
 
 /* Button Styling */
-.cta-button a {
-    background-color: #024950;
+.cta-button {
+    margin-left: 20px;
+}
+
+.blue-button {
+    background-color: #000000;
     color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 30px;
     text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid #000000;
 }
 
-.cta-button a:hover {
-    background: #01373a;
-    transform: scale(1.1);
+.blue-button:hover {
+    background-color: #333333;
+    border-color: #333333;
 }
 
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 0 10%;
+    background: url('/static/images/dash_2.png') no-repeat right center;
+    background-size: contain;
+    margin-top: 20px;
+}
+
+.hero-content {
+    max-width: 50%;
+    color: #024950;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.transparent-button {
+    background-color: transparent;
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.transparent-button:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
 
 /* Content Sections */
 .content-section {
@@ -118,135 +170,113 @@ nav .logo {
     border-top: 3px solid #e0b973;
 }
 
-/* CTA Button */
-.cta-button {
-    margin-left: 20px;
+/* Disease Slider */
+.disease-slider {
+    display: flex;
+    overflow-x: auto;
+    padding: 2rem 5%;
+    gap: 2rem;
 }
 
-.blue-button {
-    background-color: #3b82f6;
-    color: #fff;
+.slide {
+    min-width: 300px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.slide img {
+    height: 200px;
+    object-fit: contain;
+    margin: 1rem auto;
+    display: block;
+}
+
+.learn-more-button {
+    background-color: #000000;
+    color: white;
     padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
+    border-radius: 30px;
     text-decoration: none;
-    font-weight: bold;
     transition: background 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
 }
 
-.blue-button:hover {
-    background-color: #2563eb;
+.learn-more-button:hover {
+    background-color: #333333;
 }
 
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 110vh;
-    padding: 0 10%;
-    width: 1230px;
-    background: url('/static/images/dash_2.png') no-repeat center center/cover;
-    background-size: cover;
-    image-rendering: crisp-edges;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: high-quality;
-    padding-top:20px;
-    margin-top:20px;
-    
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 5%;
-        background: url('/static/images/dash.png') no-repeat center center/cover;
-        background-size: cover;
-        padding-top:50px;
-    }
-
-    .hero-content {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-}
-/* Hero Content Styling */
-.hero-content {
-    max-width: 50%;
-    color: #024950;
-    margin-left: -5%; /* Moves content slightly left */
-}
-
-/* Responsive Adjustment */
-@media (max-width: 768px) {
-    .hero-content {
-        margin-left: 0; /* Reset for smaller screens */
-        text-align: center;
-    }
-}
-
-/* Buttons Container */
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-/* Transparent Oval Buttons */
-.transparent-button {
-    font-size: 18px;
-    font-weight: bold;
-    color: #024950;
-    text-decoration: none;
-    padding: 12px 30px;
-    border: 2px solid rgb(23, 22, 22);
-    border-radius: 50px; /* Oval Shape */
-    background: transparent;
-    transition: 0.3s ease-in-out;
-}
-
-/* Hover Effect */
-.transparent-button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffd700; /* Gold Hover Effect */
-}
-
-/* Responsive Design Adjustments */
-@media (max-width: 768px) {
-    .hero-content {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-/* General Section */
+/* Contact Section */
 .contact-section {
-    font-family: Arial, sans-serif;
-    background: rgb(240, 240, 238);
-    color: black;
+    background: #f1ece5;
     padding: 60px 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f1ece5;
 }
 
-/* Main Container */
 .contact-container {
     display: flex;
     justify-content: space-between;
     max-width: 900px;
     width: 100%;
-    border: 2px solid rgba(0, 0, 0, 0.2); /* Adds a border */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a shadow */
-    padding: 20px; /* Adds space inside the box */
-    background: #f9f9f9; /* Light background color */
+    margin: 0 auto;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background: #f9f9f9;
+}
+
+.contact-form button[type="submit"] {
+    background-color: #000000;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #333333;
+}
+
+/* Footer */
+footer {
+    background: #000000;
+    color: white;
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        background-position: center right;
+        background-size: cover;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 5%;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        display: none;
+    }
 }
 
 
@@ -275,7 +305,7 @@ nav .logo {
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
     font-size: 16px;
-    color: rgb(196, 187, 187);
+    color: rgb(155, 154, 154);
     outline: none;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
    
@@ -394,100 +424,908 @@ nav .logo {
     background-color: #2563eb;
 }
 
-/* Responsive Fix */
-@media (max-width: 768px) {
-    .disease-container {
-        flex-direction: column;
-    }
+/* About Section */
+/* General Body Styling */
 
-    .disease-slider {
-        flex: 0 0 100%;
-    }
+  
+  body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f8f7;
+      color: #5a4a42;
+      margin: 0;
+      padding-top: 70px; 
+      overflow-x: hidden;
+  }
+  
+  /* Navigation Bar */
+  nav {
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
+      z-index: 1000;
+  }
+  
+  /* Logo Styling */
+  .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+  }
+  
+  .logo img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+  }
+  
+  .logo img:hover {
+      transform: scale(1.1);
+  }
+  
+  .nav-title {
+      color: #024950;
+      font-size: 20px;
+      font-weight: bold;
+      white-space: nowrap;
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+      display: flex;
+      list-style: none;
+      margin-left: auto;
+      gap: 25px;
+  }
+  
+  .nav-links a {
+      color: #5a4a42;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      padding-bottom: 5px;
+      transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+      color: #024950;
+  }
+  
+  .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #024950;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+  }
+  
+  .nav-links a:hover::after {
+      transform: scaleX(1);
+  }
+  
+  /* Button Styling */
+  .cta-button {
+      margin-left: 20px;
+  }
+  
+  .blue-button {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: 2px solid #000000;
+  }
+  
+  .blue-button:hover {
+      background-color: #333333;
+      border-color: #333333;
+  }
+  
+  /* Disease Slider Section */
+  .disease-slider-container {
+      width: 100%;
+      padding: 60px 5%;
+      background: #f8f9fa;
+  }
+  
+  .disease-slider {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 20px 0;
+      scrollbar-width: none;
+  }
+  
+  .disease-slider::-webkit-scrollbar {
+      display: none;
+  }
+  
+  .slide {
+      scroll-snap-align: start;
+      min-width: 100%;
+      position: relative;
+  }
+  
+  .slide-image-container {
+      position: relative;
+      width: 100%;
+      height: 400px; /* Reduced from 500px */
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+  }
+  
+  .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+  }
+  
+  .slide-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 30px; /* Reduced from 40px */
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+  }
+  
+  .slide:hover .slide-overlay {
+      transform: translateY(0);
+  }
+  
+  .slide:hover img {
+      transform: scale(1.05);
+  }
+  
+  .slide h2 {
+      font-size: 1.8rem; /* Reduced from 2rem */
+      margin-bottom: 12px; /* Reduced from 15px */
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  }
+  
+  .slide p {
+      font-size: 1rem; /* Reduced from 1.1rem */
+      line-height: 1.5; /* Tighter from 1.6 */
+      margin-bottom: 15px; /* Reduced from 20px */
+      color: rgba(255,255,255,0.9);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, margin-bottom 0.3s ease;
+  }
+  
+  .slide:hover p {
+      max-height: 150px; /* Reduced from 200px */
+      margin-bottom: 15px;
+  }
+  
+  .learn-more-button {
+      display: inline-block;
+      background: #000;
+      color: white !important;
+      padding: 10px 20px; /* Reduced from 12px 25px */
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(15px); /* Reduced from 20px */
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      align-self: flex-start;
+      font-size: 0.9rem; /* Reduced from 1rem */
+  }
+  
+  .slide:hover .learn-more-button {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  
+  .learn-more-button:hover {
+      background: #333;
+  }
+  
+  /* About Section - Now positioned first */
+  #about-section {
+      scroll-margin-top: 100px; /* Accounts for fixed header */
+  }
+  
+  .about-section {
+      width: 100%;
+      min-height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 5%;
+      background: #f5f5f5;
+      box-sizing: border-box;
+  }
+  
+  .about-content {
+      max-width: 1200px;
+      width: 100%;
+  }
+  
+  .about-text {
+      text-align: center;
+      color: #444;
+      padding: 0 20px;
+      margin-bottom: 40px;
+  }
+  
+  .about-text h2 {
+      color: #1a1a1a;
+      font-size: 2rem; /* Reduced from 2.5rem */
+      font-weight: 700;
+      margin-bottom: 15px; /* Reduced from 20px */
+      position: relative;
+  }
+  
+  .about-text h2::after {
+      content: '';
+      display: block;
+      width: 60px; /* Reduced from 80px */
+      height: 3px; /* Reduced from 4px */
+      background: #024950;
+      margin: 10px auto; /* Reduced from 15px */
+  }
+  
+  .about-text p {
+      margin-bottom: 15px; /* Reduced from 20px */
+      line-height: 1.6;
+      font-size: 1rem; /* Reduced from 1.1rem */
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #555;
+  }
+  
+  
+  .highlight {
+      background-color: #e8e8e8;
+      padding: 15px; /* Reduced from 20px */
+      border-radius: 8px; /* Reduced from 10px */
+      margin: 20px 0; /* Reduced from 25px */
+      border-left: 3px solid #024950; /* Reduced from 4px */
+  }
+  
+  /* Benefits Grid */
+  .about-benefits {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px; /* Reduced from 25px */
+      margin: 30px 0; /* Reduced from 40px */
+  }
+  
+  .benefit {
+      background: #d1d1d1;
+      padding: 20px; /* Reduced from 25px */
+      border-radius: 8px; /* Reduced from 10px */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid #c0c0c0;
+      height: 200px; /* Reduced from 250px */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+  
+  .benefit:hover {
+      background: #ffffff;
+      transform: translateY(-3px); /* Reduced from -5px */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Reduced shadow */
+  }
+  
+  .benefit span {
+      font-size: 2rem; /* Reduced from 2.5rem */
+      color: #024950;
+      display: block;
+      margin-bottom: 10px; /* Reduced from 15px */
+  }
+  
+  .benefit h3 {
+      margin: 8px 0; /* Reduced from 10px */
+      font-size: 1.1rem; /* Reduced from 1.3rem */
+      color: #222;
+      font-weight: 600;
+  }
+  
+  .benefit p {
+      color: #555;
+      font-size: 0.9rem; /* Reduced from 1rem */
+      line-height: 1.5;
+      margin-bottom: 10px; /* Reduced from 15px */
+  }
+  
+  /* Call-to-Action Button */
+  .health-check-button {
+      display: inline-block;
+      background: #000000;
+      color: white !important;
+      padding: 12px 30px; /* Reduced from 15px 35px */
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1rem; /* Reduced from 1.1rem */
+      font-weight: 600;
+      margin-top: 25px; /* Reduced from 30px */
+      transition: all 0.3s ease;
+      border: 2px solid #000000;
+  }
+  
+  .health-check-button:hover {
+      background: #333333;
+      transform: scale(1.03);
+  }
+  
+  /* Mission Statement */
+  .mission {
+      font-style: italic;
+      font-size: 1.1rem; /* Reduced from 1.2rem */
+      margin: 25px auto; /* Reduced from 35px */
+      max-width: 800px;
+      color: #444;
+      line-height: 1.6; /* Tighter from 1.7 */
+      padding: 10px 0; /* Reduced from 15px */
+      text-align: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+      .slide-image-container {
+          height: 350px; /* Adjusted from 400px */
+      }
+      
+      .about-section {
+          padding: 40px 5%; /* Reduced from 50px */
+      }
+      
+      .benefit {
+          height: 180px; /* Reduced from 230px */
+          padding: 15px; /* Reduced from 20px */
+      }
+      
+      .slide h2 {
+          font-size: 1.6rem; /* Adjusted */
+      }
+  }
+  
+  @media (max-width: 768px) {
+      .disease-slider-container {
+          padding: 30px 5%; /* Reduced from 40px */
+      }
+      
+      .slide-image-container {
+          height: 300px; /* Adjusted from 350px */
+      }
+      
+      .slide-overlay {
+          padding: 25px; /* Reduced from 30px */
+      }
+      
+      .about-benefits {
+          grid-template-columns: 1fr;
+          gap: 15px; /* Reduced from 20px */
+      }
+      
+      .benefit {
+          height: auto;
+          min-height: 160px; /* Reduced from 200px */
+      }
+      
+      .health-check-button {
+          padding: 12px 25px; /* Adjusted */
+          font-size: 0.95rem; /* Reduced */
+      }
+      
+      .slide h2 {
+          font-size: 1.4rem; /* Adjusted */
+      }
+  }
+  
+  @media (max-width: 576px) {
+      .slide-image-container {
+          height: 250px; /* Reduced from 300px */
+      }
+      
+      .slide-overlay {
+          padding: 20px;
+      }
+      
+      .about-text h2 {
+          font-size: 1.8rem; /* Adjusted */
+      }
+      
+      .benefit h3 {
+          font-size: 1.1rem; /* Adjusted */
+      }
+      
+      .benefit p {
+          font-size: 0.9rem; /* Adjusted */
+      }
+      
+      .slide h2 {
+          font-size: 1.3rem; /* Adjusted */
+      }
+      
+      .slide p {
+          font-size: 0.9rem; /* Reduced */
+      }
+      
+      .learn-more-button {
+          padding: 8px 16px; /* Reduced */
+          font-size: 0.85rem; /* Reduced */
+      }
+  }
+
+ 
+/* Navigation Bar */
+nav {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    z-index: 1000;
 }
 
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
+.logo img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.nav-title {
+    color: #024950;
+    font-size: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #5a4a42;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #024950;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #024950;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Button Styling */
+.cta-button {
+    margin-left: 20px;
+}
+
+.blue-button {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid #000000;
+}
+
+.blue-button:hover {
+    background-color: #333333;
+    border-color: #333333;
+}
+
+/* Disease Slider Section - Made more compact */
+.disease-slider-container {
+    width: 100%;
+    padding: 40px 5%; /* Reduced padding */
+    background: #f8f9fa;
+}
+
+.disease-slider {
+    display: flex;
+    gap: 20px; /* Reduced gap */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 15px 0; /* Reduced padding */
+    scrollbar-width: none;
+}
+
+.disease-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slide {
+    scroll-snap-align: start;
+    min-width: 100%;
+    position: relative;
+}
+
+.slide-image-container {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Reduced height */
+    border-radius: 12px; /* Slightly reduced */
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 30px; /* Reduced padding */
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.slide:hover .slide-overlay {
+    transform: translateY(0);
+}
+
+.slide:hover img {
+    transform: scale(1.05);
+}
+
+.slide h2 {
+    font-size: 1.8rem; /* Reduced size */
+    margin-bottom: 12px; /* Reduced margin */
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.slide p {
+    font-size: 1rem; /* Reduced size */
+    line-height: 1.5; /* Tighter line height */
+    margin-bottom: 15px; /* Reduced margin */
+    color: rgba(255,255,255,0.9);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin-bottom 0.3s ease;
+}
+
+.slide:hover p {
+    max-height: 150px; /* Reduced max height */
+    margin-bottom: 15px;
+}
+
+.learn-more-button {
+    display: inline-block;
+    background: #000;
+    color: white !important;
+    padding: 10px 20px; /* Reduced padding */
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(15px); /* Reduced translate */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    align-self: flex-start;
+    font-size: 0.9rem; /* Reduced font size */
+}
+
+.slide:hover .learn-more-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.learn-more-button:hover {
+    background: #333;
+}
+
+/* About Section */
 .about-section {
+    width: 100%;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 8%;
-    background: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    text-align: center;
+    padding: 40px 5%;
+    background: #f5f5f5;
+    box-sizing: border-box;
+}
+
+.about-content {
+    max-width: 1200px;
+    width: 100%;
 }
 
 .about-text {
-    text-align: justify;
+    text-align: center;
     color: #444;
     padding: 0 20px;
-    max-width: 800px;
+    margin-bottom: 30px;
 }
 
 .about-text h2 {
-    color: #2c2c2c;
-    font-size: 34px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    color: #1a1a1a;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.about-text h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #024950;
+    margin: 10px auto;
 }
 
 .about-text p {
     margin-bottom: 15px;
-    line-height: 1.8;
-    font-size: 17px;
+    line-height: 1.6;
+    font-size: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
 }
 
+.highlight {
+    background-color: #e8e8e8;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border-left: 3px solid #024950;
+}
+
+/* Benefits Grid - 4 rectangular cards (2x2) */
 .about-benefits {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    margin-top: 20px;
+    margin: 30px 0;
 }
 
 .benefit {
-    background: white;
-    padding: 15px;
+    background: #d1d1d1;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.3s ease;
+    border: 1px solid #c0c0c0;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .benefit:hover {
-    transform: translateY(-5px);
+    background: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .benefit span {
-    font-size: 2em;
-    color: #007bff;
+    font-size: 2rem;
+    color: #024950;
     display: block;
+    margin-bottom: 10px;
 }
 
 .benefit h3 {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #333;
+    margin: 8px 0;
+    font-size: 1.1rem;
+    color: #222;
+    font-weight: 600;
+}
+
+.benefit p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
 }
 
 /* Call-to-Action Button */
 .health-check-button {
     display: inline-block;
-    background: #007bff;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
+    background: #000000;
+    color: white !important;
+    padding: 12px 30px; /* Slightly reduced */
+    border-radius: 30px;
     text-decoration: none;
-    font-size: 17px;
-    margin-top: 20px;
-    transition: background 0.3s ease-in-out;
-    margin-left:280px;
-    
+    font-size: 1rem; /* Reduced from 1.1rem */
+    font-weight: 600;
+    margin-top: 25px; /* Reduced margin */
+    transition: all 0.3s ease;
+    border: 2px solid #000000;
 }
 
 .health-check-button:hover {
-    background: #0056b3;
+    background: #333333;
+    transform: scale(1.03);
 }
 
+/* Mission Statement */
+.mission {
+    font-style: italic;
+    font-size: 1.1rem; /* Reduced from 1.2rem */
+    margin: 25px auto; /* Reduced margin */
+    max-width: 800px;
+    color: #444;
+    line-height: 1.6; /* Tighter line height */
+    padding: 10px 0; /* Reduced padding */
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .slide-image-container {
+        height: 350px; /* Adjusted */
+    }
+    
+    .about-section {
+        padding: 40px 5%;
+    }
+    
+    .benefit {
+        height: 180px; /* Reduced */
+        padding: 15px; /* Reduced */
+    }
+    
+    .slide h2 {
+        font-size: 1.6rem; /* Adjusted */
+    }
+}
+
+@media (max-width: 768px) {
+    .disease-slider-container {
+        padding: 30px 5%; /* Reduced */
+    }
+    
+    .slide-image-container {
+        height: 300px; /* Adjusted */
+    }
+    
+    .slide-overlay {
+        padding: 25px; /* Reduced */
+    }
+    
+    .about-benefits {
+        grid-template-columns: 1fr;
+        gap: 15px; /* Reduced */
+    }
+    
+    .benefit {
+        height: auto;
+        min-height: 160px; /* Reduced */
+    }
+    
+    .health-check-button {
+        padding: 12px 25px; /* Adjusted */
+        font-size: 0.95rem; /* Reduced */
+    }
+    
+    .slide h2 {
+        font-size: 1.4rem; /* Adjusted */
+    }
+}
+
+@media (max-width: 576px) {
+    .slide-image-container {
+        height: 250px; /* Reduced */
+    }
+    
+    .slide-overlay {
+        padding: 20px;
+    }
+    
+    .about-text h2 {
+        font-size: 1.8rem; /* Adjusted */
+    }
+    
+    .benefit h3 {
+        font-size: 1.1rem; /* Adjusted */
+    }
+    
+    .benefit p {
+        font-size: 0.9rem; /* Adjusted */
+    }
+    
+    .slide h2 {
+        font-size: 1.3rem; /* Adjusted */
+    }
+    
+    .slide p {
+        font-size: 0.9rem; /* Reduced */
+    }
+    
+    .learn-more-button {
+        padding: 8px 16px; /* Reduced */
+        font-size: 0.85rem; /* Reduced */
+    }
+}
 /* Responsive Styling */
 @media (max-width: 1024px) {
     .about-section {
@@ -588,3 +1426,10 @@ footer {
     border-top: 1px solid #024950; /* Changed border color */
     color: #024950; /* Changed text color */
 }
+.about-section {
+    background-color: #a9a9a9;
+}
+.contact-section {
+    background-color: #a9a9a9;
+}
+

@@ -17,7 +17,7 @@ class_names = [
 ]
 
 # Load trained model
-model = load_model("C:/all pros/palm pro/palm disease app/api/model/palm_disease_model.h5")
+model = load_model("C:\\Users\\madas\\OneDrive\\Desktop\\PROJECTS\\EarlyCure\\Early_Cure_WebApp\\api\\model\\palm_disease_model.h5")
 input_shape = model.input_shape[1:]
 
 def preprocess_image_from_memory(img):
