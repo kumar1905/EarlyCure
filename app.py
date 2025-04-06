@@ -4,6 +4,7 @@ import numpy as np
 import base64
 from tensorflow.keras.models import load_model
 import imghdr
+import os
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 
@@ -17,7 +18,8 @@ class_names = [
 ]
 
 # Load trained model
-model = load_model("C:\\Users\\madas\\OneDrive\\Desktop\\PROJECTS\\EarlyCure\\Early_Cure_WebApp\\api\\model\\palm_disease_model.h5")
+model_path = os.path.join("api", "model", "palm_disease_model.h5")
+model = load_model(model_path)
 input_shape = model.input_shape[1:]
 
 def preprocess_image_from_memory(img):
